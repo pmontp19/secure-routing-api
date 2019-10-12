@@ -5,7 +5,7 @@ var router = express.Router();
 /* POST method route. */
 router.route('/')
   .get(async (req, res, next) => {
-
+  // TODO aqui irá la llamada a AWS
     const data =
       res.send('well done');
   })
