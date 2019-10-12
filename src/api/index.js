@@ -9,7 +9,7 @@ router.route('/directions')
     const destination = req.query.destination.split(",")
     const data = await computeRoute(origin, destination)
     if (data !== undefined) {
-      res.status(200).send('well done' + data)
+      res.status(200).send(data)
     } else {
       res.status(500).send('something broke')
     }

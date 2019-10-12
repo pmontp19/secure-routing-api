@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "netlify-lambda build express",
-    "start": "./bin/www"
+    "start": "./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "@hapi/boom": "^8.0.1",
