@@ -1,12 +1,18 @@
 var express = require('express');
 var router = express.Router();
-//const accidents = require('../controllers/accidents')
+const computeRoute = require('../middleware/lambda')
 
-/* POST method route. */
-router.route('/')
+/* GET method route. */
+router.route('/directions')
   .get(async (req, res, next) => {
-  // TODO aqui irá la llamada a AWS
-    const data =
-      res.send('well done');
+    const origin = req.query.origin.split(",")
+    const destination = req.query.destination.split(",")
+    const data = await computeRoute(origin, destination)
+    if (data !== undefined) {
+      res.status(200).send('well done' + data)
+    } else {
+      res.status(500).send('something broke')
+    }
+
   })
 module.exports = router;
