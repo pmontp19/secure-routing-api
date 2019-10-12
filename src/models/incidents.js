@@ -1,5 +1,4 @@
 const dynamoose = require('dynamoose');
-var AWS = require('aws-sdk');
 var Schema = dynamoose.Schema;
 
 var IncidentSchema = new Schema({

@@ -1,55 +1,55 @@
-const dynamoose = require('dynamoose');
-var AWS = require('aws-sdk');
-var Schema = dynamoose.Schema;
+'use strict'
+const dynamoose = require('dynamoose')
+const { Schema, model } = dynamoose;
 
-var AccidentSchema = new Schema({
+const AccidentSchema = new Schema({
+		id: {
+			type: String,
+			index: true
+		},
+		lat: {
+			type: Number
+		},
+		lon: {
+			type: Number
+		},
+		mildInjureds: {
+			type: Number
+		},
+		seriousInjureds: {
+			type: Number
+		},
+		deaths: {
+			type: Number
+		},
+		totalInvolvedPeople: {
+			type: Number
+		},
+		vehiclesInvolved: {
+			type: Number
+		},
+		hour: {
+			type: Number
+		},
+		monthOfYear: {
+			type: Number
+		},
+		dayOfWeek: {
+			type: Number
+		},
+		year: {
+			type: Number
+		}
+	},
+	{
+		throughput: {read: 15, write: 5}
+	});
 
-	id: {
-		type: String,
-		index: true
-	},
-	lat: {
-		type: Number
-	},
-	lon: {
-		type: Number
-	},
-	mildInjureds: {
-		type: Number
-	},
-	seriousInjureds: {
-		type: Number
-	},
-	deaths: {
-		type: Number
-	},
-	totalInvolvedPeople: {
-		type: Number
-	},
-	vehiclesInvolved: {
-		type: Number
-	},
-	hour: {
-		type: Number
-	},
-	monthOfYear: {
-		type: Number
-	},
-	dayOfWeek: {
-		type: Number
-	},
-	year: {
-		type: Number
-	}
-},
-{
-	throughput: {read: 15, write: 5}
-});
+var accidentsModel = model('BCN_Accidents', AccidentSchema);
 
-var AccidentsModel = dynamoose.model('BCN_Accidents', AccidentSchema);
+module.exports = accidentsModel
 
-AccidentsModel.scan().exec(function (err, accidents) {
+/*AccidentsModel.scan().exec(function (err, accidents) {
   // Look at all the dogs
   console.log(accidents)
-
-});
+});*/

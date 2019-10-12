@@ -3,15 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "PORT=3001 node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@hapi/boom": "^8.0.1",
+    "aws": "0.0.3-2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.1.0",
+    "dynamoose": "^1.11.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "osrm.js": "^5.5.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "latest"
   }
 }

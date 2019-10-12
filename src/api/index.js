@@ -1,11 +1,12 @@
-const express = require('express')
+var express = require('express');
+var router = express.Router();
+//const accidents = require('../controllers/accidents')
 
-const {errorHandler} = require('../middleware')
+/* POST method route. */
+router.route('/')
+  .get(async (req, res, next) => {
 
-const routersInit = config => {
-  const router = express()
-  router.use('/users', users(models,{config}))
-  router.use(errorHandler)
-}
-
-module.exports=routersInit;
+    const data =
+      res.send('well done');
+  })
+module.exports = router;
