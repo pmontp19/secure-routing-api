@@ -15,10 +15,10 @@ async function computeRoute(origin, destination) {
   var params = {
     FunctionName: 'computeAndScoreRoute', /* required */
     Payload: JSON.stringify({
-      'x1': origin[0],
-      'y1': origin[1],
-      'x2': destination[0],
-      'y2': destination[1]
+      'x1': origin[1],
+      'y1': origin[0],
+      'x2': destination[1],
+      'y2': destination[0]
     })
   };
 
